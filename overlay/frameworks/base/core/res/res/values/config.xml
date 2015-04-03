@@ -222,8 +222,8 @@ supports Samsung Galaxy S4. -->
 it causes the device to wake up.
 The default is false. -->
 <bool name="config_lidControlsSleep">true</bool>
-<!-- Hardware keys enable/disable -->
-<bool name="config_hwKeysPref">true</bool>
+<!-- Hardware keys enable/disable
+<bool name="config_hwKeysPref">true</bool> -->
 <!-- Boolean to enable Stylus gestures -->
 <bool name="config_stylusGestures">true</bool>
 </resources>
