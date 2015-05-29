@@ -202,7 +202,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ota.romname=Temasek-lt03wifi \
     ro.ota.version=$(shell date +%F | sed s@-@@g) \
     ro.ota.manifest=https://romhut.com/roms/temasek-lt03wifi/ota.xml
-
-PRODUCT_PACKAGES += \
-    OTAUpdates \
-    libbypass
