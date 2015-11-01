@@ -421,9 +421,6 @@ on fs
     rm /data/smd_started
     rm /data/sv_cno.info
 
-# Camera
-    mkdir /data/camera 0700 media media
-
 # Permissions Camera
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camtype

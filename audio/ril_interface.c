@@ -17,6 +17,8 @@
 #define LOG_TAG "audio_hw_primary_ril"
 #define LOG_NDEBUG 0
 
+#include <errno.h>
+
 #include <dlfcn.h>
 #include <stdlib.h>
 

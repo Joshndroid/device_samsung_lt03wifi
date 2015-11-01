@@ -19,7 +19,7 @@ LOCAL_PATH := device/samsung/lt03wifi
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
-TARGET_SLSI_VARIANT := insignal
+TARGET_SLSI_VARIANT := cm
 TARGET_SOC := exynos5420
 
 # Architecture
@@ -51,6 +51,7 @@ COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_DVFS
 
 # Kernel
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_CONFIG := cyanogenmod_lt03wifi_defconfig
@@ -146,7 +147,7 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_SEPOLICY_DIRS += \
     device/samsung/lt03wifi/sepolicy
 
-BOARD_SEPOLICY_UNION += \
+#BOARD_SEPOLICY_UNION += \
     file_contexts \
     device.te \
     domain.te \
@@ -180,9 +181,6 @@ BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
-
-# External apps on SD
-TARGET_EXTERNAL_APPS := sdcard1
 
 # inherit from the proprietary version
 -include vendor/samsung/lt03wifi/BoardConfigVendor.mk
