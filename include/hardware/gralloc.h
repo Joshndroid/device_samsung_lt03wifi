@@ -105,13 +105,24 @@ enum {
     GRALLOC_USAGE_HW_CAMERA_ZSL         = 0x00060000,
     /* mask for the camera access values */
     GRALLOC_USAGE_HW_CAMERA_MASK        = 0x00060000,
-    /* buffer will be used by the HW IPs when sysmmu is off */
-    GRALLOC_USAGE_PHYSICALLY_LINEAR     = 0x01000000,
+    /* buffer will be used by the framebuffer device with sysmmu off */
+    GRALLOC_USAGE_HW_FB_PHY_LINEAR      = 0x00008000,
     /* mask for the software usage bit-mask */
     GRALLOC_USAGE_HW_MASK               = 0x00079F00,
 
     /* buffer will be used as a RenderScript Allocation */
     GRALLOC_USAGE_RENDERSCRIPT          = 0x00100000,
+	
+	/* Set by the consumer to indicate to the producer that they may attach a
+     * buffer that they did not detach from the BufferQueue. Will be filtered
+     * out by GRALLOC_USAGE_ALLOC_MASK, so gralloc modules will not need to
+     * handle this flag. */
+    GRALLOC_USAGE_FOREIGN_BUFFERS       = 0x00200000,
+
+    /* Mask of all flags which could be passed to a gralloc module for buffer
+     * allocation. Any flags not in this mask do not need to be handled by
+     * gralloc modules. */
+    GRALLOC_USAGE_ALLOC_MASK            = ~(GRALLOC_USAGE_FOREIGN_BUFFERS),
 
     /* buffer should be displayed full-screen on an external display when
      * possible
@@ -125,7 +136,7 @@ enum {
      * composition to the external sink.
      */
     GRALLOC_USAGE_PROTECTED             = 0x00004000,
-    GRALLOC_USAGE_GPU_BUFFER            = 0x00800000,
+	GRALLOC_USAGE_GPU_BUFFER            = 0x00800000,
 
     /* buffer may be used as a cursor */
     GRALLOC_USAGE_CURSOR                = 0x00008000,
@@ -155,6 +166,14 @@ enum {
 
     /* SEC Private usage , for Overlay path at HWC */
     GRALLOC_USAGE_HWC_HWOVERLAY         = 0x20000000,
+#endif
+
+#ifdef EXYNOS5_ENHANCEMENTS
+    /* buffer will be used by the HW IPs when sysmmu is off */
+    GRALLOC_USAGE_PHYSICALLY_LINEAR     = 0x01000000,
+
+    GRALLOC_USAGE_GPU_BUFFER            = 0x00800000,
+    GRALLOC_USAGE_PRIVATE_NONSECURE     = 0x02000000,
 #endif
 };
 
