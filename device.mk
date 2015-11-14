@@ -54,8 +54,7 @@ PRODUCT_COPY_FILES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    e2fsck \
-    setup_fs
+    e2fsck
 
 # GPS
 PRODUCT_PACKAGES += \
