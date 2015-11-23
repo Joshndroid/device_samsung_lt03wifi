@@ -196,4 +196,4 @@ WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
 TARGET_EXTERNAL_APPS := sdcard1
 
 # inherit from the proprietary version
--include vendor/samsung/klimtwifi/BoardConfigVendor.mk
+-include vendor/samsung/lt03wifi/BoardConfigVendor.mk
