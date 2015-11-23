@@ -31,7 +31,12 @@ ro.hwui.text_large_cache_height=1024
 
 # USB
 persist.sys.isUsbOtgEnabled=true
-persist.sys.usb.config=mtp
+ro.adb.secure=0
+ro.secure=0
+ro.debuggable=1
+persist.sys.usb.config=mtp,adb
+persist.service.adb.enable=1
+persist.service.debuggable=1
 
 # Radio
 ro.radio.noril=yes

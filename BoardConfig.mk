@@ -19,7 +19,7 @@ LOCAL_PATH := device/samsung/lt03wifi
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
-TARGET_SLSI_VARIANT := insignal
+TARGET_SLSI_VARIANT := cm
 TARGET_SOC := exynos5420
 
 # Architecture
@@ -51,6 +51,7 @@ COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_DVFS
 
 # Kernel
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_CONFIG := cyanogenmod_lt03wifi_defconfig
@@ -101,6 +102,9 @@ BOARD_HARDWARE_CLASS += device/samsung/lt03wifi/cmhw
 # Init
 TARGET_NR_SVC_SUPP_GIDS := 20
 
+# Samsung LSI OpenMAX
+COMMON_GLOBAL_CFLAGS += -DUSE_NATIVE_SEC_NV12TILED
+
 # OpenMAX Video
 BOARD_USE_STOREMETADATA := true
 BOARD_USE_METADATABUFFERTYPE := true
@@ -147,7 +151,7 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_SEPOLICY_DIRS += \
     device/samsung/lt03wifi/sepolicy
 
-BOARD_SEPOLICY_UNION += \
+#BOARD_SEPOLICY_UNION += \
     file_contexts \
     device.te \
     domain.te \
@@ -167,8 +171,8 @@ BOARD_SEPOLICY_UNION += \
 ENABLE_WEBGL := true
 
 # WFD
-BOARD_USES_WFD_SERVICE := true
-BOARD_USES_WFD := true
+#BOARD_USES_WFD_SERVICE := true
+#BOARD_USES_WFD := true
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true

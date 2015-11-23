@@ -114,7 +114,7 @@ PRODUCT_PACKAGES += \
     libcsc \
     libExynosOMX_Core \
     libOMX.Exynos.MP3.Decoder \
-    libstagefrighthw \
+    libstagefrighthw 
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -195,9 +195,3 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/lt03wifi/lt03wifi-vendor.mk)
-
-#Temasek OTA dependencies
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ota.romname=Temasek-lt03wifi \
-    ro.ota.version=$(shell date +%F | sed s@-@@g) \
-    ro.ota.manifest=https://romhut.com/roms/temasek-lt03wifi/ota.xml
