@@ -37,6 +37,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+	
+#PRODUCT_PACKAGES += \
+#    libsamsung_symbols
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
@@ -96,11 +99,11 @@ PRODUCT_PACKAGES += \
 
 # MobiCore setup
 PRODUCT_PACKAGES += \
+	mcDriverDaemon \
     libMcClient \
     libMcRegistry \
     libPaApi \
-    libgdmcprov \
-    mcDriverDaemon
+    libgdmcprov 
 
 # Network tools
 PRODUCT_PACKAGES += \
@@ -146,7 +149,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     fstab.universal5420 \
-    init.samsung.rc \
+    init.samsung.rc \ 
     init.universal5420.rc \
     init.universal5420.usb.rc \
     init.universal5420.wifi.rc \
@@ -186,13 +189,29 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnetcmdiface \
     macloader
+	
+# Video codecs
+PRODUCT_PACKAGES += \
+     libOMX.Exynos.AVC.Decoder \
+     libOMX.Exynos.AVC.Encoder \
+     libOMX.Exynos.HEVC.Decoder \
+     libOMX.Exynos.MPEG4.Decoder \
+     libOMX.Exynos.MPEG4.Encoder \
+     libOMX.Exynos.VP8.Decoder \
+     libOMX.Exynos.WMV.Decoder
 
+# RANDOM NUMBER GENERATOR
+PRODUCT_PACKAGES += \
+    exyrngd
+	 
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+
+$(call inherit-product, hardware/samsung_slsi-cm/exynos5420/exynos5420.mk)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/lt03wifi/lt03wifi-vendor.mk)
