@@ -148,11 +148,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     fstab.universal5420 \
-    init.samsung.rc \ 
     init.universal5420.rc \
     init.universal5420.usb.rc \
     init.universal5420.wifi.rc \
-    ueventd.universal5420.rc
+    ueventd.universal5420.rc \
+    init.samsung.rc
 
 # Radio (needed for audio controls even on wifi-only)
 PRODUCT_PACKAGES += \
